@@ -1,0 +1,80 @@
+html {
+  font-size: 14px;
+  min-width: 1270px;
+}
+
+.content_page {
+  margin-left: 220px !important;
+  padding: 1rem;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+.w_200px {
+  width: 200px;
+}
+.h_200px {
+  height: 200px;
+}
+
+.w_120px {
+  width: 200px;
+}
+
+.w_40px {
+  width: 40px;
+}
+.h_40px {
+  height: 40px;
+}
+
+
+
+.img_circle {
+  border-radius: 50% !important;
+}
+
+.max_w_800px {
+  max-width: 800px !important;
+}
+
+.line-height-33px{
+  line-height: 33px;
+}
+
+.fw_bold{
+  font-weight: bold;
+}
+.fw_semi_bold{
+  font-weight: 600;
+}
+.width_fit_content{
+  width: fit-content;
+}
+li{
+  cursor: pointer;
+}
+
+.btn_search_zoom{
+  color: gray;
+  transition: 0.5s;
+}
+
+.btn_search_zoom:hover{
+  color: rgb(43, 47, 50);
+}
+.btn_search_zoom.zoom_out{
+  transform: rotateX(180deg);
+}
+.cursor_pointer{
+  cursor: pointer;
+}
+table thead tr th{
+  background: lightgray!important;
+}

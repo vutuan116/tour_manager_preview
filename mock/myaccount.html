@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TourManager</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+
+<body>
+    <div class="navbar_page">
+        <nav class="col-auto">
+            <aside>
+                <ul class="px-2">
+                    <li>
+                        <img src="../img/img.jpg" class="rounded d-block mx-auto w_40px h_40px img_circle">
+                        <h2 class="fs-2 pt-2 pl-2 text-center">Admin</h2>
+                    </li>
+                </ul>
+                <hr>
+                <ul onclick="openNavBar('menu_mine')">
+                    <li id="menu_mine">
+                        <a>
+                            <i class="fas fa-user-circle"></i>
+                            <span>Nhân viên</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            </li>
+                            <li>
+                                <a><i class="fas fa-users"></i>Danh sách</a>
+                            </li>
+                            <li>
+                                <a><i class="fas fa-user-cog"></i>Thông tin cá nhân</a>
+                            </li>
+                            <li>
+                                <a><i class="fas fa-briefcase"></i>Hoạt động</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_tour')">
+                    <li id="menu_tour">
+                        <a>
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Tour</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a><i class="fas fa-list-ol"></i>Danh sách Tour</a>
+                            </li>
+                            <li>
+                                <a><i class="fas fa-hand-holding"></i>Tour của tôi</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_customer')">
+                    <li id="menu_customer">
+                        <a>
+                            <i class="fas fa-portrait"></i>
+                            <span>Khách hàng</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a><i class="fas fa-address-card"></i>Danh sách Khách hàng</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_coupon')">
+                    <li id="menu_coupon">
+                        <a>
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Mã khuyến mại</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a><i class="fas fa-clipboard-list"></i>Danh sách mã khuyến mại</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+        </nav>
+    </div>
+    <div class="content_page line-height-33px">
+        <h1 class="bd-title mb-0">Thông tin cá nhân</h1>
+        <br>
+        <div class="border">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-tab" type="button"
+                        role="tab" aria-selected="true">Thông tin cá
+                        nhân</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#changepw-tab" type="button"
+                        role="tab" aria-selected="false">Đổi mật khẩu</button>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="profile-tab">
+                    <div class="row p-3">
+                        <div class="col-3 text-center pt-3">
+                            <img src="../img/img.jpg" class="rounded mx-auto d-block w_200px h_200px m-3 img_circle">
+                            <button class="btn btn-outline-primary"><i class="fas fa-cloud-upload-alt"></i> Upload ảnh</button>
+                        </div>
+                        <div class="col-9">
+                            <div class="row p-2">
+                                <div class="col-3 text-end">Họ tên:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3 text-end">Tài khoản:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3 text-end">Số điện thoại:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3 text-end">Email:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3 text-end">Địa chỉ:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3 text-end">CCCD:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3 text-end">Vị trí:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3 text-end">Nhóm sale:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3 text-end">Hoa hồng:</div>
+                                <div class="col-4"><input class="form-control"></div>
+                            </div>
+                            <div class="row p-2">
+                                <div class="col-3"></div>
+                                <div class="col-4">
+                                    <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Lưu thông tin</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="changepw-tab" role="tabpanel">
+                    <div class="col-9">
+                        <div class="row p-2">
+                            <div class="col-3 text-end">Mật khẩu hiện tại:</div>
+                            <div class="col-4"><input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-3 text-end">Mật khẩu mới:</div>
+                            <div class="col-4"><input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-3 text-end">Xác nhận mật khẩu:</div>
+                            <div class="col-4"><input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock"></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-3"></div>
+                            <button class="col-3 btn btn-primary" type="submit"><i class="fas fa-save"></i> Lưu mật khẩu</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/site.js" asp-append-version="true"></script>
+    <script src="../js/menu.js"></script>
+</body>
+
+</html>

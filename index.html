@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TourManager</title>
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/site.css" />
+    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+<body>
+    <div class="navbar_page">
+        <nav class="col-auto">
+            <aside>
+                <ul class="px-2">
+                    <li>
+                        <img src="../img/img.jpg" class="rounded d-block mx-auto w_40px h_40px img_circle">
+                        <h2 class="fs-2 pt-2 pl-2 text-center">Admin</h2>
+                    </li>
+                </ul>
+                <hr>
+                <ul onclick="openNavBar('menu_mine')">
+                    <li id="menu_mine">
+                        <a>
+                            <i class="fas fa-user-circle"></i>
+                            <span>Nhân viên</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            </li>
+                            <li>
+                                <a><i class="fas fa-users"></i>Danh sách</a>
+                            </li>
+                            <li>
+                                <a><i class="fas fa-user-cog"></i>Thông tin cá nhân</a>
+                            </li>
+                            <li>
+                                <a><i class="fas fa-briefcase"></i>Hoạt động</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_tour')">
+                    <li id="menu_tour">
+                        <a>
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Tour</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a><i class="fas fa-list-ol"></i>Danh sách Tour</a>
+                            </li>
+                            <li>
+                                <a><i class="fas fa-hand-holding"></i>Tour của tôi</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_customer')">
+                    <li id="menu_customer">
+                        <a>
+                            <i class="fas fa-portrait"></i>
+                            <span>Khách hàng</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a><i class="fas fa-address-card"></i>Danh sách Khách hàng</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_coupon')">
+                    <li id="menu_coupon">
+                        <a>
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Mã khuyến mại</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a><i class="fas fa-clipboard-list"></i>Danh sách mã khuyến mại</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+        </nav>
+    </div>
+    <div class="content_page line-height-33px">
+    </div>
+
+    <script src="../lib/jquery/dist/jquery.min.js"></script>
+    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/site.js" asp-append-version="true"></script>
+    <script src="../js/menu.js"></script>
+</body>
+</html>
