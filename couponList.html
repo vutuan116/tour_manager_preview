@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TourManager</title>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-additional.css" />
+    <link rel="stylesheet" href="lib/jquery-ui/jquery-ui.css" />
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
+
 <body>
     <div class="navbar_page">
         <nav class="col-auto">
@@ -96,12 +100,264 @@
             <div class="col-auto">
                 <h1 class="bd-title mb-0">Danh sách Coupon</h1>
             </div>
+            <div class="col">
+                <button type="button" class="btn btn-success float-right" data-bs-toggle="modal"
+                    data-bs-target="#addNewCoupon"><i class="far fa-plus-square"></i> Tạo Coupon mới</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-auto">
+                        <h5 class="m-1 width_fit_content cursor_pointer">
+                            <i class="fas fa-search"></i> Tìm kiếm
+                        </h5>
+                    </div>
+                    <div class="col">
+                        <a class="float-right fs-3 btn_search_zoom" onclick="zoomSearchBody()"><i
+                                class="fas fa-caret-square-up"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body" id="search_body">
+                <div class="row p-3">
+                    <div class="col-auto text-end pl-3 pr-1 fw_semi_bold">Từ khóa:</div>
+                    <div class="col-2"><input class="form-control w-90"></div>
+                    <div class="col-auto text-end pl-3 pr-1 fw_semi_bold">Loại coupon:</div>
+                    <div class="col-2">
+                        <select class="form-select">
+                            <option value="0" selected>- - -</option>
+                            <option value="1">Giảm x % giá trị tour</option>
+                            <option value="2">Giảm x VNĐ</option>
+                        </select>
+                    </div>
+                    <div class="col-auto text-end pl-3 pr-1 fw_semi_bold">Trạng thái:</div>
+                    <div class="col-2">
+                        <select class="form-select">
+                            <option value="1">- - -</option>
+                            <option value="2">Chưa sử dụng</option>
+                            <option value="3">Đã sử dụng</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center p-2">
+                    <button class="col-2 btn btn-primary">
+                        <i class="fas fa-search"></i> Tìm kiếm
+                    </button>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div>
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col">Ngày tạo</th>
+                        <th scope="col">Nội dung</th>
+                        <th scope="col">Mã coupon</th>
+                        <th scope="col">Hạn sử dụng</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-center">11/04/2024</td>
+                        <td>Giảm 15%, tối đa 500.000 VNĐ</td>
+                        <td class="text-center">H19SZA1BQWC</td>
+                        <td class="text-center">31/21/2024</td>
+                        <td class="text-center">Chưa sử dụng</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">15/01/2024</td>
+                        <td>Giảm 20%, tối đa 1.000.000 VNĐ</td>
+                        <td class="text-center">HK9SDA1JQ3C</td>
+                        <td class="text-center">31/21/2024</td>
+                        <td class="text-center">Chưa sử dụng</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">14/01/2024</td>
+                        <td>Giảm 1.000.000 VNĐ</td>
+                        <td class="text-center">KA3SJF15ALSQ2</td>
+                        <td class="text-center">31/21/2024</td>
+                        <td class="text-center">Đã sử dụng</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#viewStaffInfo">
+                                <i class="fas fa-info-circle"></i> Chi tiết
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">02/01/2024</td>
+                        <td>Giảm 20%</td>
+                        <td class="text-center">1SD4F1GK9KA7</td>
+                        <td class="text-center">31/21/2024</td>
+                        <td class="text-center">Đã sử dụng</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#viewStaffInfo">
+                                <i class="fas fa-info-circle"></i> Chi tiết
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagging">
+                <ul class="pagination width_fit_content m-auto">
+                    <li class="page-item">
+                        <a class="page-link plr-3">
+                            <i class="fas fa-angle-double-left"></i>
+                        </a>
+                    </li>
+                    <li><a class="page-link plr-3">1</a></li>
+                    <li><a class="page-link plr-3">2</a></li>
+                    <li><a class="page-link plr-3">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link plr-3">
+                            <i class="fas fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 
+    <div class="modal fade" id="addNewCoupon" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog max_w_800px">
+            <div class="modal-content line_height_32px">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-4">Tạo Coupon mới</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-pane fade show active p-4" id="profile-tab">
+                        <div class="row">
+                            <h5>Chọn loại Coupon</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input mt-2" type="radio" name="cp_type" id="cp_type_1">
+                                    <label for="cp_type_1">
+                                        Coupon giảm
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col d-ruby">
+                                <input class="form-control w_120px p-1" />
+                                <span class="width_fit_content">VNĐ</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input mt-2" type="radio" name="cp_type" id="cp_type_2">
+                                    <label for="cp_type_2">
+                                        Coupon giảm
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col d-ruby">
+                                <input class="form-control w_120px p-1" />
+                                <span class="width_fit_content">%</span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-auto">
+                                <div class="form-check">
+                                    <input class="form-check-input mt-2" type="radio" name="cp_type" id="cp_type_3"
+                                        checked>
+                                    <label for="cp_type_3">
+                                        Coupon giảm
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col d-ruby">
+                                <input class="form-control w_120px p-1" />
+                                <span class="width_fit_content">%, tối đa </span>
+                                <input class="form-control w_120px p-1" />
+                                <span>VNĐ</span>
+                            </div>
+                        </div>
+
+                        <div class="row pt-4">
+                            <h5>Chọn số lượng Coupon</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-3"><input class="form-control" /></div>
+                        </div>
+
+                        <div class="row pt-4">
+                            <div class="col-auto">
+                                <h5>Chọn hạn sử dụng</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-3"><input class="form-control" id="expiry_Coupon" /></div>
+                        </div>
+
+                        <div class="row pt-4">
+                            <h5>Chọn tiền tố của Coupon</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-3"><input class="form-control" /></div>
+                        </div>
+
+                        <div class="row pt-4">
+                            <h5>Chỉ định nhân viên được sử dụng.</h5>
+                        </div>
+                        <div class="row">
+                            <div class="col-1"></div>
+                            <div class="col-6">
+                                <select class="fw_semi_bold form-control">
+                                    <option>- - -</option>
+                                    <option>Nguyễn Tú Lam (ntlam)</option>
+                                    <option>Nguyễn Khánh Vân (nkvan)</option>
+                                    <option>Trần Quang Khải (tqkhai)</option>
+                                    <option>Chu Bá Thông (cbthong)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tạo Coupon</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function () {
+            viewDatepicker('expiry_Coupon');
+        };
+    </script>
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="js/site.js" asp-append-version="true"></script>
+    <script src="lib/jquery-ui/jquery-ui.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/site.js"></script>
     <script src="js/menu.js"></script>
 </body>
+
 </html>

@@ -1,6 +1,7 @@
 .float-right {
     float: right !important;
 }
+
 .float-left {
     float: left !important;
 }
@@ -68,6 +69,7 @@
 .mr-4 {
     margin-right: 2rem;
 }
+
 .plr-1 {
     padding-left: 0.25rem;
     padding-right: 0.25rem;
@@ -108,7 +110,10 @@
     margin-right: 2rem;
 }
 
-.justify-content-start{
+.justify-content-start {
     justify-content: start;
-  }
-  
+}
+
+.d-ruby {
+    display: ruby;
+}
