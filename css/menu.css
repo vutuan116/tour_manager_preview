@@ -1,7 +1,6 @@
 .active {
-    color: black;
     background: aliceblue;
-    font-weight: bold;
+    font-weight: 600;
 }
 
 .navbar_page {
@@ -74,6 +73,10 @@ aside ul li a {
     color: white;
 }
 
+li.active a{
+    color: #000d33;
+}
+
 aside ul li a i {
     width: 30px;
     padding: 5px;
@@ -97,27 +100,15 @@ aside ul li>ul li {
     font-size: 15px;
     padding: 1px 1px 1px 5px;
     font-weight: normal;
-    /* border-left: 2px solid #fff0f0; */
     margin: 5px;
     color: white;
     cursor: pointer;
 }
 
-/* aside ul li>ul li a,
-aside ul li.target>ul li,
-aside ul li:has(>ul li.active) {
-    background: transparent;
-} */
-
 aside ul li.target,
 aside ul li:has(>ul li.active) {
     max-height: 300px;
     border-radius: 5px 0 0 5px;
-}
-
-aside ul li.target a {
-    color: #444;
-    display: inherit;
 }
 
 aside ul li.target a i.fa-angle-right,
@@ -130,4 +121,8 @@ aside ul li:has(>ul li.active) a i.fa-angle-right {
 aside ul li.target:hover,
 aside ul li:has(>ul li.active):hover {
     background: initial;
+}
+
+aside ul li ul li a:hover {
+    color: white!important;
 }

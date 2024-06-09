@@ -34,8 +34,6 @@ html {
   height: 40px;
 }
 
-
-
 .img_circle {
   border-radius: 50% !important;
 }
@@ -44,8 +42,8 @@ html {
   max-width: 800px !important;
 }
 
-.line-height-33px{
-  line-height: 33px;
+.line_height_32px{
+  line-height: 32px;
 }
 
 .fw_bold{
@@ -63,7 +61,6 @@ li{
 
 .btn_search_zoom{
   color: gray;
-  transition: 0.5s;
 }
 
 .btn_search_zoom:hover{

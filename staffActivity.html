@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TourManager</title>
-    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/site.css" />
-    <link rel="stylesheet" href="../css/menu.css" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
-
 <body>
     <div class="navbar_page">
         <nav class="col-auto">
             <aside>
                 <ul class="px-2">
                     <li>
-                        <img src="../img/img.jpg" class="rounded d-block mx-auto w_40px h_40px img_circle">
-                        <h2 class="fs-2 pt-2 pl-2 text-center">Admin</h2>
+                        <img src="img/img.jpg" class="rounded d-block mx-auto w_40px h_40px img_circle">
+                        <h2 class="fs-2 pt-2 pl-2 mb-0 text-center">Admin</h2>
                     </li>
                 </ul>
-                <hr>
+                <hr class="mt-0">
                 <ul onclick="openNavBar('menu_mine')">
                     <li id="menu_mine">
                         <a>
@@ -31,16 +29,16 @@
                         </a>
                         <ul>
                             <li>
-                                <a><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                                <a href="staffDashboard.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             </li>
                             <li>
-                                <a><i class="fas fa-users"></i>Danh sách</a>
+                                <a href="staffList.html"><i class="fas fa-users"></i>Danh sách</a>
                             </li>
                             <li>
-                                <a><i class="fas fa-user-cog"></i>Thông tin cá nhân</a>
+                                <a href="staffAccount.html"><i class="fas fa-user-cog"></i>Thông tin cá nhân</a>
                             </li>
-                            <li>
-                                <a><i class="fas fa-briefcase"></i>Hoạt động</a>
+                            <li class="active">
+                                <a href="staffActivity.html"><i class="fas fa-briefcase"></i>Hoạt động</a>
                             </li>
                         </ul>
                     </li>
@@ -54,10 +52,10 @@
                         </a>
                         <ul>
                             <li>
-                                <a><i class="fas fa-list-ol"></i>Danh sách Tour</a>
+                                <a href="tourList.html"><i class="fas fa-list-ol"></i>Danh sách Tour</a>
                             </li>
                             <li>
-                                <a><i class="fas fa-hand-holding"></i>Tour của tôi</a>
+                                <a href="tourBooking.html"><i class="fas fa-hand-holding"></i>Quản lý booking</a>
                             </li>
                         </ul>
                     </li>
@@ -71,7 +69,7 @@
                         </a>
                         <ul>
                             <li>
-                                <a><i class="fas fa-address-card"></i>Danh sách Khách hàng</a>
+                                <a href="customerList.html"><i class="fas fa-address-card"></i>Danh sách KH</a>
                             </li>
                         </ul>
                     </li>
@@ -85,7 +83,7 @@
                         </a>
                         <ul>
                             <li>
-                                <a><i class="fas fa-clipboard-list"></i>Danh sách mã khuyến mại</a>
+                                <a href="couponList.html"><i class="fas fa-clipboard-list"></i>Danh sách Coupon</a>
                             </li>
                         </ul>
                     </li>
@@ -93,17 +91,17 @@
             </aside>
         </nav>
     </div>
-    <div class="content_page line-height-33px">
-        <h1 class="bd-title mb-0">Danh sách Tour</h1>
-        <br>
-        <div class="border">
+    <div class="content_page line_height_32px">
+        <div class="row p-3">
+            <div class="col-auto">
+                <h1 class="bd-title mb-0">Hoạt động của nhân viên</h1>
+            </div>
         </div>
     </div>
 
-    <script src="../lib/jquery/dist/jquery.min.js"></script>
-    <script src="../lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/site.js" asp-append-version="true"></script>
-    <script src="../js/menu.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/site.js" asp-append-version="true"></script>
+    <script src="js/menu.js"></script>
 </body>
-
 </html>
