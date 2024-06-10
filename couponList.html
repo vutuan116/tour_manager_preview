@@ -124,7 +124,7 @@
                 <div class="row p-3">
                     <div class="col-auto text-end pl-3 pr-1 fw_semi_bold">Từ khóa:</div>
                     <div class="col-2"><input class="form-control w-90"></div>
-                    <div class="col-auto text-end pl-3 pr-1 fw_semi_bold">Loại coupon:</div>
+                    <div class="col-2 text-end pl-3 pr-1 fw_semi_bold">Loại coupon:</div>
                     <div class="col-2">
                         <select class="form-select">
                             <option value="0" selected>- - -</option>
@@ -132,7 +132,7 @@
                             <option value="2">Giảm x VNĐ</option>
                         </select>
                     </div>
-                    <div class="col-auto text-end pl-3 pr-1 fw_semi_bold">Trạng thái:</div>
+                    <div class="col-2 text-end pl-3 pr-1 fw_semi_bold">Trạng thái:</div>
                     <div class="col-2">
                         <select class="form-select">
                             <option value="1">- - -</option>
@@ -311,7 +311,7 @@
                         </div>
                         <div class="row">
                             <div class="col-1"></div>
-                            <div class="col-3"><input class="form-control" id="expiry_Coupon" /></div>
+                            <div class="col-3"><input class="form-control datepicker" id="expiry_Coupon" /></div>
                         </div>
 
                         <div class="row pt-4">
@@ -346,12 +346,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        window.onload = function () {
-            viewDatepicker('expiry_Coupon');
-        };
-    </script>
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="lib/jquery-ui/jquery-ui.js"></script>

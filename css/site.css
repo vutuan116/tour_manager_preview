@@ -30,12 +30,22 @@ html {
 .w_40px {
   width: 40px;
 }
+
+.w_60px {
+  width: 60px;
+}
+
 .h_40px {
   height: 40px;
 }
 
 .img_circle {
   border-radius: 50% !important;
+}
+
+.max_w_200px {
+  max-width: 200px !important;
+  word-wrap: break-word;
 }
 
 .max_w_800px {

@@ -4,11 +4,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TourManager</title>
+    <title>TourManager - Danh sách Tour</title>
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-additional.css" />
     <link rel="stylesheet" href="css/site.css" />
     <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="lib/jquery-ui/jquery-ui.css" />
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 
@@ -99,11 +100,362 @@
             <div class="col-auto">
                 <h1 class="bd-title mb-0">Danh sách Tour</h1>
             </div>
+            <div class="col">
+                <button type="button" class="btn btn-success float-right" data-bs-toggle="modal"
+                    data-bs-target="#addNewTour"><i class="fas fa-calendar-plus"></i> Tạo Tour mới</button>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-auto">
+                        <h5 class="m-1 width_fit_content cursor_pointer">
+                            <i class="fas fa-search"></i> Tìm kiếm
+                        </h5>
+                    </div>
+                    <div class="col">
+                        <a class="float-right fs-3 btn_search_zoom" onclick="zoomSearchBody()"><i
+                                class="fas fa-caret-square-up"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body" id="search_body">
+                <div class="row p-3">
+                    <div class="col-2 text-end pl-4 pr-1 fw_semi_bold">Tên Tour:</div>
+                    <div class="col-3">
+                        <input class="form-control">
+                    </div>
+                    <div class="col-3 text-end pl-4 pr-1 fw_semi_bold">Số người:</div>
+                    <div class="col-3">
+                        <input class="form-control">
+                    </div>
+                </div>
+                <div class="row p-3">
+                    <div class="col-2 text-end pl-4 pr-1 fw_semi_bold">Khoảng giá (triệu):</div>
+                    <div class="col-3">
+                        <div class="row">
+                            <div class="col pt-1">
+                                <input class="form-control p-0 min_range_value_txt text-center" value="1"
+                                    onchange='$(".min_range_value_pgb").val($(".min_range_value_txt").val())'>
+                                <input type="range" class="form-range min_range_value_pgb mt-2" min="1" max="50"
+                                    step="1" value="1"
+                                    onchange='$(".min_range_value_txt").val($(".min_range_value_pgb").val())'>
+                            </div>
+                            <div class="col-auto p-0">
+                                ~
+                            </div>
+                            <div class="col pt-1">
+                                <input class="form-control p-0 max_range_value_txt text-center" value="50"
+                                    onchange='$(".max_range_value_pgb").val($(".max_range_value_txt").val())'>
+                                <input type="range" class="form-range max_range_value_pgb mt-2" min="1" max="50"
+                                    step="1" value="50"
+                                    onchange='$(".max_range_value_txt").val($(".max_range_value_pgb").val())'>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-3 text-end pl-4 pr-1 fw_semi_bold">Trạng thái:</div>
+                    <div class="col-3">
+                        <select class="fw_semi_bold form-control">
+                            <option>- - -</option>
+                            <option selected>Đang mở</option>
+                            <option>Đã đóng</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center p-2">
+                    <button class="col-2 btn btn-primary">
+                        <i class="fas fa-search"></i> Tìm kiếm
+                    </button>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div>
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr class="text-center">
+                        <th scope="col" class="max_w_200px">Tên tour</th>
+                        <th scope="col">Địa điểm</th>
+                        <th scope="col">Số người</th>
+                        <th scope="col">Bắt đầu</th>
+                        <th scope="col">Kết thúc</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Trạng thái</th>
+                        <th scope="col">Ghi chú</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="max_w_200px">Hà Nội-Đà Lạt 2N1Đ</td>
+                        <td>Đà Lạt</td>
+                        <td class="text-center">8/10</td>
+                        <td class="text-center">01/07/2024</td>
+                        <td class="text-center">03/07/2024</td>
+                        <td class="text-end">10.000 000</td>
+                        <td class="text-center">Đang mở</td>
+                        <td>Giá chưa bao gồm tiền đi thăm quan Làng đất sét</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-primary btn-sm w_60px" data-bs-toggle="modal"
+                                data-bs-target="#viewTourInfo">
+                                <i class="fas fa-info-circle"></i> Xem
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="max_w_200px">HÀ NỘI - ĐẢO NGỌC PHÚ QUỐC - HÀ NỘI 3N2Đ</td>
+                        <td>Phú Quốc</td>
+                        <td class="text-center">8/8</td>
+                        <td class="text-center">12/07/2024</td>
+                        <td class="text-center">15/07/2024</td>
+                        <td class="text-end">16 000.000</td>
+                        <td class="text-center">Đã đóng</td>
+                        <td>Bay VNA</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-primary btn-sm w_60px" data-bs-toggle="modal"
+                                data-bs-target="#viewTourInfo">
+                                <i class="fas fa-info-circle"></i> Xem
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="max_w_200px">HÀ NỘI - LỆ GIANG - SHANGRILA - HÀ NỘI</td>
+                        <td>LỆ GIANG, SHANGRILA</td>
+                        <td class="text-center">12/15</td>
+                        <td class="text-center">13/07/2024</td>
+                        <td class="text-center">18/07/2024</td>
+                        <td class="text-end">20.000 000</td>
+                        <td class="text-center">Đang mở</td>
+                        <td>5N4Đ Bay thẳng Bamboo Airways</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-primary btn-sm w_60px" data-bs-toggle="modal"
+                                data-bs-target="#viewTourInfo">
+                                <i class="fas fa-info-circle"></i> Xem
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="max_w_200px">HÀ NỘI - NAM NINH - THÀNH ĐÔ - LẠC SƠN ĐẠI PHẬT - CỬU TRẠI CÂU - HOÀNG
+                            LONG - MẬU HUYỆN</td>
+                        <td>NAM NINH, THÀNH ĐÔ, CỬU TRẠI CÂU</td>
+                        <td class="text-center">1/25</td>
+                        <td class="text-center">22/08/2024</td>
+                        <td class="text-center">26/08/2024</td>
+                        <td class="text-end">15 000.000</td>
+                        <td class="text-center">Đang mở</td>
+                        <td>Bay nối chuyến CNA</td>
+                        <td class="text-center">
+                            <button type="button" class="btn btn-outline-primary btn-sm w_60px" data-bs-toggle="modal"
+                                data-bs-target="#viewTourInfo">
+                                <i class="fas fa-info-circle"></i> Xem
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="pagging">
+                <ul class="pagination width_fit_content m-auto">
+                    <li class="page-item">
+                        <a class="page-link plr-3">
+                            <i class="fas fa-angle-double-left"></i>
+                        </a>
+                    </li>
+                    <li><a class="page-link plr-3">1</a></li>
+                    <li><a class="page-link plr-3">2</a></li>
+                    <li><a class="page-link plr-3">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link plr-3">
+                            <i class="fas fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="addNewTour" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog max_w_800px">
+            <div class="modal-content line_height_32px">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Tạo Tour mới</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-pane fade show active" id="profile-tab">
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Tên tour:</div>
+                            <div class="col-7">
+                                <input class="form-control">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Mô tả:</div>
+                            <div class="col-7">
+                                <textarea class="form-control" rows="2"> </textarea>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Mã Tour:</div>
+                            <div class="col-7">
+                                <span class="form-control"> Mã Tour sẽ được tạo tự động.</span>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Địa điểm:</div>
+                            <div class="col-7">
+                                <input class="form-control">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Ngày bắt đầu:</div>
+                            <div class="col-7">
+                                <input class="form-control datepicker">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Ngày kết thúc:</div>
+                            <div class="col-7">
+                                <input class="form-control datepicker">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Giá tiền:</div>
+                            <div class="col-7">
+                                <input class="form-control">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Số người tối đa:</div>
+                            <div class="col-7">
+                                <input class="form-control">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Số người tối thiểu:</div>
+                            <div class="col-7">
+                                <input class="form-control" value="1">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Ghi chú:</div>
+                            <div class="col-7"><textarea class="form-control" rows="3"> </textarea></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="viewTourInfo" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog max_w_800px">
+            <div class="modal-content line_height_32px">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Thông tin Tour</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-pane fade show active" id="profile-tab">
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Tên tour:</div>
+                            <div class="col-7">
+                                <input class="form-control" value="HÀ NỘI - ĐẢO NGỌC PHÚ QUỐC - HÀ NỘI 3N2Đ">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Mã Tour:</div>
+                            <div class="col-7">
+                                <span class="form-control">HNPQ3N2DKALSD</span>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Mô tả:</div>
+                            <div class="col-7">
+                                <textarea class="form-control"
+                                    rows="2">Phú Quốc được xem là một quần đảo đẹp và lớn nhất Việt Nam. Từ lâu Phú Quốc đã được mệnh danh là hòn đảo ngọc trên vùng biển Tây Nam của Tổ quốc mang vẻ đẹp hoang sơ, huyền bí với những bãi biển đẹp làm say lòng biết bao du khách.</textarea>
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Địa điểm:</div>
+                            <div class="col-7">
+                                <input class="form-control" value="Phú Quốc">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Ngày bắt đầu:</div>
+                            <div class="col-7">
+                                <input class="form-control datepicker" value="12/07/2024">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Ngày kết thúc:</div>
+                            <div class="col-7">
+                                <input class="form-control datepicker" value="15/07/2024">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Giá tiền:</div>
+                            <div class="col-7">
+                                <input class="form-control" value="16.000.000">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Số người tối đa:</div>
+                            <div class="col-7">
+                                <input class="form-control" value="8">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Số người tối thiểu:</div>
+                            <div class="col-7">
+                                <input class="form-control" value="1">
+                            </div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Ghi chú:</div>
+                            <div class="col-7"><textarea class="form-control" rows="3">Bay VNA</textarea></div>
+                        </div>
+                        <div class="row p-2">
+                            <div class="col-4 text-end">Trạng thái Tour:</div>
+                            <div class="col-7 pt-1">
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input cursor_pointer" type="checkbox" role="switch"
+                                        id="tour_Status_cbx" checked>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-start">
+                    <div class="row w-100">
+                        <div class="col-auto">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                <i class="fas fa-calendar-times"></i> Xóa Tour</button>
+                            <button type="button" class="btn btn-primary mr-1" data-bs-dismiss="modal"><i
+                                    class="fas fa-save"></i> Lưu thay đổi</button>
+                        </div>
+                        <div class="col text-end">
+
+                            <button type="button" class="btn btn-success mr-1" data-bs-dismiss="modal">
+                                <a class="text-light" href="tourBooking.html"><i class="fas fa-hand-holding"></i> Booking</button></a>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i
+                                    class="fas fa-window-close"></i> Đóng</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.js"></script>
     <script src="js/site.js"></script>
     <script src="js/common.js"></script>
     <script src="js/menu.js"></script>
