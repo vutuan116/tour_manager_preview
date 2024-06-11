@@ -40,9 +40,7 @@
                             <li>
                                 <a href="staffAccount.html"><i class="fas fa-user-cog"></i>Thông tin cá nhân</a>
                             </li>
-                            <li>
-                                <a href="staffActivity.html"><i class="fas fa-briefcase"></i>Hoạt động</a>
-                            </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -58,7 +56,10 @@
                                 <a href="tourList.html"><i class="fas fa-list-ol"></i>Danh sách Tour</a>
                             </li>
                             <li>
-                                <a href="tourBooking.html"><i class="fas fa-hand-holding"></i>Quản lý booking</a>
+                                <a href="tourCreateBooking.html"><i class="fas fa-suitcase-rolling"></i>Tạo Booking</a>
+                            </li>
+                            <li>
+                                <a href="tourManageBooking.html"><i class="fas fa-hand-holding"></i>Quản lý booking</a>
                             </li>
                         </ul>
                     </li>
@@ -186,6 +187,9 @@
                                 data-bs-target="#viewCustomerInfo">
                                 <i class="fas fa-info-circle"></i> Chi tiết
                             </button>
+                            <a type="button" class="btn btn-outline-success btn-sm" href="tourCreateBooking.html">
+                                <i class="fas fa-info-circle"></i> Booking
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -200,20 +204,26 @@
                                 data-bs-target="#viewCustomerInfo">
                                 <i class="fas fa-info-circle"></i> Chi tiết
                             </button>
+                            <a type="button" class="btn btn-outline-success btn-sm" href="tourCreateBooking.html">
+                                <i class="fas fa-info-circle"></i> Booking
+                            </a>
                         </td>
                     </tr>
                     <tr>
                         <td>Cá nhân</td>
-                        <td class="text-start">Nguyễn Cao Cường</td>
-                        <td>CN-0120</td>
+                        <td class="text-start">Đỗ Ngọc Doanh</td>
+                        <td>CN-0139</td>
                         <td>1</td>
-                        <td>0965 421 414</td>
-                        <td class="text-start">Số 1, Khâm Thiên, Đống Đa, HN</td>
+                        <td>0912 121 112</td>
+                        <td class="text-start">Tòa FLC, Phạm Hùng, Mỹ Đình, Nam Từ Liêm, HN</td>
                         <td>
                             <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
                                 data-bs-target="#viewCustomerInfo">
                                 <i class="fas fa-info-circle"></i> Chi tiết
                             </button>
+                            <a type="button" class="btn btn-outline-success btn-sm" href="tourCreateBooking.html">
+                                <i class="fas fa-info-circle"></i> Booking
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -228,6 +238,9 @@
                                 data-bs-target="#viewCustomerInfo">
                                 <i class="fas fa-info-circle"></i> Chi tiết
                             </button>
+                            <a type="button" class="btn btn-outline-success btn-sm" href="tourCreateBooking.html">
+                                <i class="fas fa-info-circle"></i> Booking
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -242,6 +255,9 @@
                                 data-bs-target="#viewCustomerInfo">
                                 <i class="fas fa-info-circle"></i> Chi tiết
                             </button>
+                            <a type="button" class="btn btn-outline-success btn-sm" href="tourCreateBooking.html">
+                                <i class="fas fa-info-circle"></i> Booking
+                            </a>
                         </td>
                     </tr>
                 </tbody>
@@ -267,7 +283,7 @@
     </div>
 
     <div class="modal fade" id="addNewCustomer" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog max_w_800px">
+        <div class="modal-dialog max_w_1000px">
             <div class="modal-content line_height_32px">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5">Thêm khách hàng mới</h1>
@@ -348,7 +364,7 @@
     </div>
 
     <div class="modal fade" id="viewCustomerInfo" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog max_w_800px">
+        <div class="modal-dialog max_w_1000px">
             <div class="modal-content line_height_32px">
                 <div class="modal-header">
                     <h1 class="modal-title fs-5">Thông tin khách hàng</h1>
