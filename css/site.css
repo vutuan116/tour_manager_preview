@@ -1,6 +1,7 @@
 html {
   font-size: 14px;
-  min-width: 1270px;
+  min-width: 1280px;
+  min-height: 720px;
 }
 
 .content_page {
@@ -34,7 +35,15 @@ html {
 .w_60px {
   width: 60px;
 }
-
+.w_85px {
+  width: 85px;
+}
+.w_100px {
+  width: 100px;
+}
+.w_160px {
+  width: 160px;
+}
 .h_40px {
   height: 40px;
 }
@@ -50,6 +59,10 @@ html {
 
 .max_w_800px {
   max-width: 800px !important;
+}
+
+.max_w_1000px {
+  max-width: 1000px !important;
 }
 
 .line_height_32px{

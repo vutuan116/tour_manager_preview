@@ -70,6 +70,11 @@
     margin-right: 2rem;
 }
 
+.plr-0 {
+    padding-left: 0rem;
+    padding-right: 0rem;
+}
+
 .plr-1 {
     padding-left: 0.25rem;
     padding-right: 0.25rem;

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TourManager - Danh sách Tour</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-additional.css" />
+    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="css/menu.css" />
+    <link rel="stylesheet" href="lib/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css">
+</head>
+
+<body>
+    <div class="navbar_page">
+        <nav class="col-auto">
+            <aside>
+                <ul class="px-2">
+                    <li>
+                        <img src="img/img.jpg" class="rounded d-block mx-auto w_40px h_40px img_circle">
+                        <h2 class="fs-2 pt-2 pl-2 mb-0 text-center">Admin</h2>
+                    </li>
+                </ul>
+                <hr class="mt-0">
+                <ul onclick="openNavBar('menu_mine')">
+                    <li id="menu_mine">
+                        <a>
+                            <i class="fas fa-user-circle"></i>
+                            <span>Nhân viên</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="staffDashboard.html"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                            </li>
+                            <li>
+                                <a href="staffList.html"><i class="fas fa-users"></i>Danh sách</a>
+                            </li>
+                            <li>
+                                <a href="staffAccount.html"><i class="fas fa-user-cog"></i>Thông tin cá nhân</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_tour')">
+                    <li id="menu_tour">
+                        <a>
+                            <i class="fas fa-globe-asia"></i>
+                            <span>Tour</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="tourList.html"><i class="fas fa-list-ol"></i>Danh sách Tour</a>
+                            </li>
+                            <li class="active">
+                                <a href="tourCreateBooking.html"><i class="fas fa-suitcase-rolling"></i>Tạo Booking</a>
+                            </li>
+                            <li>
+                                <a href="tourManageBooking.html"><i class="fas fa-hand-holding"></i>Quản lý Booking</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_customer')">
+                    <li id="menu_customer">
+                        <a>
+                            <i class="fas fa-portrait"></i>
+                            <span>Khách hàng</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="customerList.html"><i class="fas fa-address-card"></i>Danh sách KH</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul onclick="openNavBar('menu_coupon')">
+                    <li id="menu_coupon">
+                        <a>
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Mã khuyến mại</span>
+                            <i class="fa fa-angle-right"></i>
+                        </a>
+                        <ul>
+                            <li>
+                                <a href="couponList.html"><i class="fas fa-clipboard-list"></i>Danh sách Coupon</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </aside>
+        </nav>
+    </div>
+    <div class="content_page line_height_32px">
+        <div class="row p-3">
+            <div class="col-auto">
+                <h1 class="bd-title mb-0">Tạo Booking</h1>
+            </div>
+        </div>
+        <div class="fw_semi_bold">
+            <div class="row p-2">
+                <div class="col-3 text-end">Saler:</div>
+                <div class="col-7">
+                    <span>Nguyễn Tú Lam (ntlam)</span>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-3 text-end">Ngày Booking:</div>
+                <div class="col-4">
+                    <input class="form-control datepicker" />
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-3 text-end">Mã Booking:</div>
+                <div class="col-4">
+                    <span class="form-control"> Mã booking sẽ được tạo tự động.</span>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-3 text-end">Tour:</div>
+                <div class="col-8">
+                    <div class="row m-0">
+                        <button type="button" class="btn btn-primary btn-sm w_160px" data-bs-toggle="modal"
+                            data-bs-target="#viewSelectTour">
+                            <i class="fas fa-globe-asia"></i> Chọn Tour
+                        </button>
+                    </div>
+                    <div class="row m-0 fw_semi_bold border border-primary-subtle mt-2">
+                        <div class="col-2 text-end">Tên tour:</div>
+                        <div class="col-9">Hà Nội-Đà Lạt 2N1ĐHà Nội-Đà Lạt 2N1ĐHà Nội-Đà Lạt 2N1ĐHà Nội-Đà Lạt 2N1ĐHà
+                            Nội-Đà Lạt 2N1ĐHà Nội-Đà Lạt 2N1ĐHà Nội-Đà Lạt 2N1ĐHà Nội-Đà Lạt 2N1Đ</div>
+                        <div class="col-2 text-end">Địa điểm:</div>
+                        <div class="col-9">Đà Lạt</div>
+                        <div class="col-2 text-end">Thời gian:</div>
+                        <div class="col-9">01/07/2024 ~ 03/07/2024</div>
+                        <div class="col-2 text-end">Giá tiền:</div>
+                        <div class="col-9">10.000.000</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-3 text-end">Khách hàng:</div>
+                <div class="col-8">
+                    <div class="row m-0">
+                        <button type="button" class="btn btn-primary btn-sm w_160px" data-bs-toggle="modal"
+                            data-bs-target="#viewSelectCustomer">
+                            <i class="fas fa-portrait"></i> Chọn Khách hàng
+                        </button>
+                    </div>
+                    <div class="row m-0 pt-2">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col">Tên</th>
+                                    <th scope="col">Mã KH</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Điện thoại</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td class="text-start">Nguyễn Cao Cường</td>
+                                    <td>CN-0120</td>
+                                    <td>1</td>
+                                    <td>0965 421 414</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-danger btn-sm w_85px">
+                                            Xóa
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row p-2">
+                <div class="col-3 text-end">Ghi chú:</div>
+                <div class="col-8"><textarea class="form-control" rows="3"> </textarea></div>
+            </div>
+            <div class="row p-2">
+                <div class="col-3 text-end">Nhập Coupon:</div>
+                <div class="col-4"><input class="form-control"></div>
+            </div>
+            <div class="row justify-content-md-center p-2">
+                <a class="col-2 btn btn-primary" href="tourManageBooking.html">
+                    <i class="fas fa-plus-circle"></i> Tạo Booking
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="viewSelectTour" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog max_w_1000px">
+            <div class="modal-content line_height_32px">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Chọn Tour</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-pane fade show active" id="profile-tab">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <h5 class="m-1 width_fit_content cursor_pointer">
+                                            <i class="fas fa-search"></i> Tìm kiếm
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body" id="search_body">
+                                <div class="row p-3">
+                                    <div class="col-2 text-end pl-4 pr-1 fw_semi_bold">Tên Tour:</div>
+                                    <div class="col-3">
+                                        <input class="form-control">
+                                    </div>
+                                    <div class="col-3 text-end pl-4 pr-1 fw_semi_bold">Mã Tour:</div>
+                                    <div class="col-3">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row p-3">
+                                    <div class="col-2 text-end pl-4 pr-1 fw_semi_bold">Số người:</div>
+                                    <div class="col-3">
+                                        <input class="form-control">
+                                    </div>
+                                    <div class="col-3 text-end pl-4 pr-1 fw_semi_bold">Khoảng giá (triệu):</div>
+                                    <div class="col-3">
+                                        <div class="row">
+                                            <div class="col pt-1">
+                                                <input class="form-control p-0 min_range_value_txt text-center"
+                                                    value="1"
+                                                    onchange='$(".min_range_value_pgb").val($(".min_range_value_txt").val())'>
+                                                <input type="range" class="form-range min_range_value_pgb mt-2" min="1"
+                                                    max="50" step="1" value="1"
+                                                    onchange='$(".min_range_value_txt").val($(".min_range_value_pgb").val())'>
+                                            </div>
+                                            <div class="col-auto p-0">
+                                                ~
+                                            </div>
+                                            <div class="col pt-1">
+                                                <input class="form-control p-0 max_range_value_txt text-center"
+                                                    value="50"
+                                                    onchange='$(".max_range_value_pgb").val($(".max_range_value_txt").val())'>
+                                                <input type="range" class="form-range max_range_value_pgb mt-2" min="1"
+                                                    max="50" step="1" value="50"
+                                                    onchange='$(".max_range_value_txt").val($(".max_range_value_pgb").val())'>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-md-center p-2">
+                                    <button class="col-2 btn btn-primary">
+                                        <i class="fas fa-search"></i> Tìm kiếm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered table-hover table-striped mt-3">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col" class="max_w_200px">Tên tour</th>
+                                    <th scope="col" class="max_w_200px">Địa điểm</th>
+                                    <th scope="col">Số người</th>
+                                    <th scope="col">Bắt đầu</th>
+                                    <th scope="col">Kết thúc</th>
+                                    <th scope="col" class="w_85px">Giá</th>
+                                    <th scope="col" class="max_w_200px">Ghi chú</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="max_w_200px">Hà Nội-Đà Lạt 2N1Đ</td>
+                                    <td class="max_w_200px">Đà Lạt</td>
+                                    <td class="text-center">8/10</td>
+                                    <td class="text-center">01/07/2024</td>
+                                    <td class="text-center">03/07/2024</td>
+                                    <td class="text-end w_85px">10.000.000</td>
+                                    <td class="max_w_200px">Giá chưa bao gồm tiền đi thăm quan Làng đất sét</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="max_w_200px">HÀ NỘI - ĐẢO NGỌC PHÚ QUỐC - HÀ NỘI 3N2Đ</td>
+                                    <td class="max_w_200px">Phú Quốc</td>
+                                    <td class="text-center">8/8</td>
+                                    <td class="text-center">12/07/2024</td>
+                                    <td class="text-center">15/07/2024</td>
+                                    <td class="text-end w_85px">16.000.000</td>
+                                    <td class="max_w_200px">Bay VNA</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="max_w_200px">HÀ NỘI - LỆ GIANG - SHANGRILA - HÀ NỘI</td>
+                                    <td class="max_w_200px">LỆ GIANG, SHANGRILA</td>
+                                    <td class="text-center">12/15</td>
+                                    <td class="text-center">13/07/2024</td>
+                                    <td class="text-center">18/07/2024</td>
+                                    <td class="text-end w_85px">20.000.000</td>
+                                    <td class="max_w_200px">5N4Đ Bay thẳng Bamboo Airways</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="max_w_200px">HÀ NỘI - NAM NINH - THÀNH ĐÔ - LẠC SƠN ĐẠI PHẬT - CỬU TRẠI
+                                        CÂU - HOÀNG
+                                        LONG - MẬU HUYỆN</td>
+                                    <td class="max_w_200px">NAM NINH, THÀNH ĐÔ, CỬU TRẠI CÂU</td>
+                                    <td class="text-center">1/25</td>
+                                    <td class="text-center">22/08/2024</td>
+                                    <td class="text-center">26/08/2024</td>
+                                    <td class="text-end w_85px">15.000.000</td>
+                                    <td class="max_w_200px">Bay nối chuyến CNA</td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="viewSelectCustomer" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog max_w_1000px">
+            <div class="modal-content line_height_32px">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5">Chọn Khách hàng</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="tab-pane fade show active" id="profile-tab">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <h5 class="m-1 width_fit_content cursor_pointer">
+                                            <i class="fas fa-search"></i> Tìm kiếm
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body" id="search_body">
+                                <div class="row p-3">
+                                    <div class="col-2 text-end pl-4 pr-1 fw_semi_bold">Tên Khách hàng:</div>
+                                    <div class="col-3">
+                                        <input class="form-control">
+                                    </div>
+                                    <div class="col-3 text-end pl-4 pr-1 fw_semi_bold">Mã Khách hàng:</div>
+                                    <div class="col-3">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row p-3">
+                                    <div class="col-2 text-end pl-4 pr-1 fw_semi_bold">Số điện thoại:</div>
+                                    <div class="col-3">
+                                        <input class="form-control">
+                                    </div>
+                                    <div class="col-3 text-end pl-4 pr-1 fw_semi_bold">Địa chỉ:</div>
+                                    <div class="col-3">
+                                        <input class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row justify-content-md-center p-2">
+                                    <button class="col-2 btn btn-primary">
+                                        <i class="fas fa-search"></i> Tìm kiếm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr class="text-center">
+                                    <th scope="col">Loại KH</th>
+                                    <th scope="col">Họ tên/Tên nhóm</th>
+                                    <th scope="col">Mã KH</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Địa chỉ</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <tr>
+                                    <td>Cá nhân</td>
+                                    <td class="text-start">Nguyễn Cao Cường</td>
+                                    <td>CN-0120</td>
+                                    <td>1</td>
+                                    <td>0965 421 414</td>
+                                    <td class="text-start">Số 1, Khâm Thiên, Đống Đa, HN</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tổ chức</td>
+                                    <td class="text-start">Công ty CP Phần mềm FPT</td>
+                                    <td>TC-7481</td>
+                                    <td>127</td>
+                                    <td>0915 111 222</td>
+                                    <td class="text-start">Số 1, Vũ Trọng Phụng, Thanh Xuân, HN</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Cá nhân</td>
+                                    <td class="text-start">Đỗ Ngọc Doanh</td>
+                                    <td>CN-0139</td>
+                                    <td>1</td>
+                                    <td>0912 121 112</td>
+                                    <td class="text-start">Tòa FLC, Phạm Hùng, Mỹ Đình, Nam Từ Liêm, HN</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tổ chức</td>
+                                    <td class="text-start">Công ty CP Sông Đà</td>
+                                    <td>TC-1014</td>
+                                    <td>21</td>
+                                    <td>0914 121 121</td>
+                                    <td class="text-start">Số 12, Phạm Văn Bạch, Yên Hòa, Cầu Giấy, Hà Nội</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Cá nhân</td>
+                                    <td class="text-start">Tạ Thị Hòa</td>
+                                    <td>CN-0156</td>
+                                    <td>1</td>
+                                    <td>0881 478 774</td>
+                                    <td class="text-start">Số 87 Nguyễn Chí Thanh, Đống Đa, HN</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-primary btn-sm w_60px"
+                                            data-bs-dismiss="modal" aria-label="Close">
+                                            <i class="far fa-hand-point-up"></i> Chọn
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/jquery-ui/jquery-ui.js"></script>
+    <script src="js/site.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/menu.js"></script>
+</body>
+
+</html>

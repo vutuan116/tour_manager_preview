@@ -40,9 +40,6 @@
                             <li>
                                 <a href="staffAccount.html"><i class="fas fa-user-cog"></i>Thông tin cá nhân</a>
                             </li>
-                            <li>
-                                <a href="staffActivity.html"><i class="fas fa-briefcase"></i>Hoạt động</a>
-                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -58,7 +55,10 @@
                                 <a href="tourList.html"><i class="fas fa-list-ol"></i>Danh sách Tour</a>
                             </li>
                             <li>
-                                <a href="tourBooking.html"><i class="fas fa-hand-holding"></i>Quản lý booking</a>
+                                <a href="tourCreateBooking.html"><i class="fas fa-suitcase-rolling"></i>Tạo Booking</a>
+                            </li>
+                            <li>
+                                <a href="tourManageBooking.html"><i class="fas fa-hand-holding"></i>Quản lý booking</a>
                             </li>
                         </ul>
                     </li>
@@ -99,14 +99,126 @@
             <div class="col-auto">
                 <h1 class="bd-title mb-0">Dashboard nhân viên</h1>
             </div>
+            <div class="col">
+                <button type="button" class="btn btn-primary float-right plr-4"><i class="fas fa-sign-out-alt"></i> Check-out</button>
+                <button type="button" class="btn btn-success float-right plr-4 mr-3"><i class="fas fa-sign-in-alt"></i> Check-in</button>
+            </div>
+        </div>
+        <div class="row p-4">
+            <div class="col-4 p-4">
+                <div class="row text-center">
+                    <h4>KPI tháng 6</h4>
+                </div>
+                <div class="row">
+                    <canvas id="kpi_canvas"></canvas>
+                </div>
+            </div>
+            <div class="col-8 p-4">
+                <div class="row text-center">
+                    <h4>Hiệu quả kinh doanh năm 2024</h4>
+                </div>
+                <div class="row">
+                    <canvas id="sale_result_canvas"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="row p-4 pb-0"><h3><i class="fas fa-history"></i> Lịch sử hoạt động</h3></div>
+        <div class="row p-4 pt-2">
+            <table class="table table-bordered table-hover table-striped text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Thời gian</th>
+                        <th scope="col">Hoạt động</th>
+                        <th scope="col">Nội dung</th>
+                    </tr>
+                </thead>
+                <tbody class="fw_semi_bold">
+                    <tr>
+                        <td>01/06/2024 17:00</td>
+                        <td class="max_w_200px">Báo cáo</td>
+                        <td class="text-start">Kết thúc làm việc của ngày 01/06/2024. Không có vấn đề gì bất thường</td>
+                    </tr>
+                    <tr>
+                        <td>01/06/2024 07:05</td>
+                        <td class="max_w_200px">Check in</td>
+                        <td class="text-start">Check in ngày làm việc 01/06/2024</td>
+                    </tr>
+                    <tr>
+                        <td>30/05/2024 18:32</td>
+                        <td class="max_w_200px">Báo cáo</td>
+                        <td class="text-start">Kết thúc làm việc của ngày 30/05/2024. 
+                            Tour BK-HNPQR954G1BKD11 đang bị delay, cần thông báo cho KH vào ngày mai</td>
+                    </tr>
+                    <tr>
+                        <td>30/05/2024 15:32</td>
+                        <td class="max_w_200px">Booking</td>
+                        <td class="text-start">Sửa booking BK-HNPQ3N2D145211, giá trị booking thay đổi từ 20.000.000 thành 30.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>30/05/2024 07:32</td>
+                        <td class="max_w_200px">Cập nhật</td>
+                        <td class="text-start">Đã thực hiện thay đổi CCCD từ 036023004511 thành 036023004521</td>
+                    </tr>
+                    <tr>
+                        <td>30/05/2024 07:22</td>
+                        <td class="max_w_200px">Check in</td>
+                        <td class="text-start">Check in ngày làm việc 30/05/2024</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
     <script src="lib/jquery/dist/jquery.min.js"></script>
     <script src="lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+
     <script src="js/site.js"></script>
     <script src="js/common.js"></script>
     <script src="js/menu.js"></script>
+
+    <script>
+        const kpi_canvas = new Chart("kpi_canvas", {
+            type: "doughnut",
+            data: {
+                labels: [
+                    'Đã hoàn thành',
+                    'Chưa hoàn thành'
+                ],
+                datasets: [{
+                    label: 'My First Dataset',
+                    data: [75000000, 25000000],
+                    backgroundColor: [
+                        '#E2162A',
+                        '#167CE2'
+                    ],
+                    hoverOffset: 5
+                }]
+            },
+            options: {}
+        });
+
+        const sale_result_canvas = new Chart("sale_result_canvas", {
+            type: "line",
+            data: {
+                labels: ['T1','T2','T3','T4','T5','T6','T7','T8','T9','T10','T11','T12'],
+                datasets: [
+                    {
+                        label: 'KPI tháng',
+                        data: [1500, 1600, 1200, 1600, 2000, 1600, 1600, 1800, 1600, 1600],
+                        borderColor: "red",
+                        fill: false
+                    }, {
+                        label: 'Kết quả Sale',
+                        data: [1200, 1300, 1400, 1900, 2500, 1800, 1200, 1400, 1200, 1400],
+                        borderColor: "green",
+                        fill: false
+                    }
+                ]
+            },
+            options: { }
+        });
+    </script>
 </body>
 
 </html>
